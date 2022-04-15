@@ -40,6 +40,12 @@ namespace TestDB_CodeFerst_For_IS_02_03
             }
         }
 
+        /// <summary>
+        /// Получение  записей из бд 
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         internal static List<string> GetRecord(string status)
         {
             try
@@ -118,7 +124,11 @@ namespace TestDB_CodeFerst_For_IS_02_03
         }
 
 
-
+        /// <summary>
+        /// Удаление  записи 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <exception cref="Exception"></exception>
         internal static void RemoveRecord(int id)
         {
             try
