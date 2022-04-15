@@ -135,12 +135,36 @@ namespace TestDB_CodeFerst_For_IS_02_03
 
         private static void AllReplaceMetodForever()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Удаление  всех записей - Вы уверены (yes/no)");
+            try
+            {
+                if (Console.ReadLine().ToLower().TrimStart().TrimEnd() == "yes")
+                {
+                    RecordService.DeleteAtAllForever();
+                    Console.WriteLine("Все записи  удалены (  , серьезно все ");
+                }
+                else
+                {
+                    Console.WriteLine("мы рады что  вы передумали");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void AllReplaceMetod()
         {
-            throw new NotImplementedException();
+            try
+            {
+                RecordService.AllReplace();
+                Console.WriteLine("Записи восстановлены");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void AllDell()
