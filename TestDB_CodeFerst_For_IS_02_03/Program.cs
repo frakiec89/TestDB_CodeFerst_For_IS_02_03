@@ -97,7 +97,40 @@ namespace TestDB_CodeFerst_For_IS_02_03
 
         private static void Remove()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("удаление записи");
+            int id = GetInetegerContentConsole("укажите  id записи");
+
+            try
+            {
+                RecordService.RemoveRecord(id);
+                Console.WriteLine("запись удалена!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static int GetInetegerContentConsole(string message)
+        {
+            var s = GetStringContentConsole(message);
+            try
+            {
+                var id = int.Parse(s);
+                if (id < 0)
+                {
+                    Console.WriteLine("вы ввели отрицательный  id - так не  пойдет!");
+                    Console.WriteLine("Попробуйте еще раз");
+                    return GetInetegerContentConsole(message);
+                }
+                return Convert.ToInt32(s);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("нам очень жаль но вы ввели не число ( ");
+                Console.WriteLine("Попробуйте еще раз");
+                return GetInetegerContentConsole(message);
+            }
         }
 
         private static void AllReplaceMetodForever()
