@@ -13,6 +13,7 @@ namespace TestDB_CodeFerst_For_IS_02_03
         static string removeReader = "remove";
         static string getStatus = "get-status";
         static string getReadStatus = "get-reader-status";
+
         static void Main(string[] args)  // ссылка на  гит  https://github.com/frakiec89/TestDB_CodeFerst
         {
             Console.WriteLine("Программа -- мои  записки --- ");
@@ -56,6 +57,19 @@ namespace TestDB_CodeFerst_For_IS_02_03
         }
 
         private static void GetReaderStatus()
+        {
+            string s = GetStringContentConsole("Введите статус для поиска записей");
+            try
+            {
+                RecordService.GetRecord(s).ForEach(x => Console.WriteLine(x));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private static string GetStringContentConsole(string v)
         {
             throw new NotImplementedException();
         }
