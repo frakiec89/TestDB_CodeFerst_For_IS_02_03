@@ -169,17 +169,49 @@ namespace TestDB_CodeFerst_For_IS_02_03
 
         private static void AllDell()
         {
-            throw new NotImplementedException();
+            try
+            {
+                RecordService.AllRemove();
+                Console.WriteLine("Записи удалены");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void AddRead()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Добавление новой записи:");
+            string content = GetStringContentConsole("Введи контент");
+            string status = GetStringContentConsole("укажите статус  сообщения");
+
+            try
+            {
+                RecordService.AddRecord(content, status);
+                Console.WriteLine("Запись добавлена - ура");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void GetRead()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Список активных записей:");
+            try
+            {
+                RecordService.GetRecord().ForEach(x => Console.WriteLine(x));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                Console.ReadLine();
+            }
         }
     }
 }
