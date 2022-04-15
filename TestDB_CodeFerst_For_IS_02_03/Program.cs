@@ -69,14 +69,30 @@ namespace TestDB_CodeFerst_For_IS_02_03
             }
         }
 
-        private static string GetStringContentConsole(string v)
+        private static string GetStringContentConsole(string message)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(message);
+            string content = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                Console.WriteLine("Не корректный ввод");
+                Console.WriteLine("Попробуйте еще раз");
+                return GetStringContentConsole(message);
+            }
+            return content.TrimStart().TrimEnd();
         }
 
         private static void GetStatus()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Список всех статусов в  записях:");
+            try
+            {
+                RecordService.GetStatus().ForEach(x => Console.WriteLine(x));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private static void Remove()
