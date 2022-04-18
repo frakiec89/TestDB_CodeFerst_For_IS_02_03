@@ -47,7 +47,8 @@ namespace TestDB_CodeFerst_For_IS_02_03
                     case "get-status": GetStatus(); break;
                     case "get-reader-status": GetReaderStatus(); break;
 
-
+                        // todo  задание  
+                        // я все  сделал  
                     default:
                         Console.WriteLine("не корректная команда");
                         break;

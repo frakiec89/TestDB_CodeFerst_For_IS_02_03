@@ -16,7 +16,7 @@ namespace TestDB_CodeFerst_For_IS_02_03.DB
         Microsoft.EntityFrameworkCore.Tools
         */
 
-
+        // я  не  понимаю  этот  код  
 
 
         /*
